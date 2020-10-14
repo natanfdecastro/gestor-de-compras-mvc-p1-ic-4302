@@ -1,5 +1,8 @@
+
 INSERT INTO proveedor (nombre, direccion, telefono)
 VALUES ('Mega Super', 'Adobes, Calle 7', '+506 8442-7935');
+INSERT INTO proveedor (nombre, direccion, telefono)
+VALUES ('Pali', 'Adobes, Calle 8', '+506 8442-7935');
 
 -- Tipos de Producto
 -- https://en.wikipedia.org/wiki/Fast-moving_consumer_goods --
@@ -69,7 +72,12 @@ VALUES ('materiales de hogar');
 --Compra
 
 INSERT INTO compra (fecha,id_proveedor)
-VALUES('07/09/2020',1);
+VALUES('07-SEP-2020',1);
+
+
+INSERT INTO compra (fecha,id_proveedor)
+VALUES('08-SEP-2020',2);
+
 
 -- Producto
 
@@ -79,18 +87,14 @@ VALUES ('Cloro', 'litros', 13);
 INSERT INTO producto (nombre, medida, id_tipo)
 VALUES ('Arroz', 'kilogramos', 5);
 
--- Precio
-
-INSERT INTO precio(importe,fecha_inicial,fecha_final,id_producto)
-VALUES(1250,'01-JAN-17','01-FEB-17',1);
-
-INSERT INTO precio(importe,fecha_inicial,fecha_final,id_producto)
-VALUES(1750,'01-JAN-17','01-FEB-17',2);
-
 -- Compra producto
 
-INSERT INTO compra_producto(id_compra,id_producto,cantidad)
-VALUES(1,1,1);
+INSERT INTO compra_producto(id_compra,id_producto,cantidad,precio)
+VALUES(1,1,1,1250);
 
-INSERT INTO compra_producto(id_compra,id_producto,cantidad)
-VALUES(1,2,2);
+INSERT INTO compra_producto(id_compra,id_producto,cantidad,precio)
+VALUES(1,2,2,1750);
+
+
+INSERT INTO compra_producto(id_compra,id_producto,cantidad,precio)
+VALUES(2,1,1,1200);
