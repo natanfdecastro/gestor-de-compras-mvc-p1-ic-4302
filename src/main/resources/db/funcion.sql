@@ -30,7 +30,7 @@ Cursor C1 IS
 BEGIN
 
     For i IN C1 LOOP
-		lista_total := lista_total || i.producto || ' ' || i.precio || ' En ' || i.proveedor || chr(10);
+		lista_total := lista_total || trim(i.producto) || ' ' || i.precio || ' En ' || i.proveedor || chr(10);
 
 	END LOOP;
     RETURN lista_total;
