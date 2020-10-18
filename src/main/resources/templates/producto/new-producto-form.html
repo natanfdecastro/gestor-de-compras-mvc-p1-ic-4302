@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Manejar Tipo</title>
+    <title>Agregar Proveedor</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" th:href="@{/css/libs/style.css}">
     <link rel="stylesheet" th:href="@{/css/vendor/bootstrap/bootstrap.min.css}">
@@ -96,9 +96,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" th:href="@{/productos/new}">Agregar Producto</a>
                                     </li>
-                                    <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/compraProductos/new}">Agregar Compra Producto</a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -117,19 +114,16 @@
                             <div id="submenu-5" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/compras}">Tabla Compra</a>
+                                        <a class="nav-link" th:href="@{/compras}">Compra</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/productos}">Tabla Producto</a>
+                                        <a class="nav-link" th:href="@{/productos}">Producto</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/proveedores}">Tabla Proveedor</a>
+                                        <a class="nav-link" th:href="@{/proveedores}">Proveedor</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/tipos}">Tabla Tipo</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/compraProductos}">Tabla Compra Producto</a>
+                                        <a class="nav-link" th:href="@{/tipos}">Tipo</a>
                                     </li>
                                 </ul>
                             </div>
@@ -147,34 +141,65 @@
     <!-- wrapper  -->
     <!-- ============================================================== -->
 
-    <div class="dashboard-wrapper">
-        <div class="container-fluid dashboard-content">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h5>Panel Principal > Manejar Tablas > Tipos</h5>
                     <!-- ============================================================== -->
                     <!-- content -->
                     <!-- ============================================================== -->
-                    <br><br>
+                    <div class="container-contact100">
+                        <div class="wrap-contact100">
+                            <form class="contact100-form validate-form" action="#" th:action="@{/productos/save}" th:object="${producto}" method="post">
+				<span class="contact100-form-title">
+					 Nuevo Producto
+				</span>
 
-                    <table class="container">
-                        <thead>
-                        <tr>
-                            <th><h1>ID</h1></th>
-                            <th><h1>Nombre</h1>
-                            <th><h1>Acción: Editar</h1></th>
-                            <th><h1>Acción: Eliminar</h1></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="tipo : ${listTipos}">
-                            <td th:text="${tipo.id}"></td>
-                            <td th:text="${tipo.nombre}"></td>
-                            <td><center><a th:href="@{'/tipo/edit/' + ${tipo.id}}" class="yellow">EDITAR</a></center></td>
-                            <td><center><a th:href="@{'/tipo/delete/' + ${tipo.id}}" class="red">ELIMINAR</a></center></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                <div class="wrap-input100 validate-input" data-validate="Nombre es requerido">
+                                    <span class="label-input100">Nombre de Producto</span>
+                                    <input class="input100" type="text" th:field="*{nombre}"   name="name" placeholder="Ingrese el nombre de Producto">
+                                    <span class="focus-input100"></span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input" data-validate = "Medida es requerida">
+                                    <span class="label-input100">Medida</span>
+                                    <input class="input100" type="text" th:field="*{medida}" name="medida" placeholder="Ingrese la medida del Producto">
+                                    <span class="focus-input100"></span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input" data-validate = "ID Tipo es requerido">
+                                    <span class="label-input100">ID Tipo</span>
+                                    <input class="input100" type="text" th:field="*{id_tipo}" name="id_tipo" placeholder="Ingrese el ID-Tipo del Producto">
+                                    <span class="focus-input100"></span>
+                                </div>
+
+
+
+                                <div class="container-contact100-form-btn">
+                                    <div class="wrap-contact100-form-btn">
+                                        <div class="contact100-form-bgbtn"></div>
+                                        <button class="contact100-form-btn" type="submit">
+							<span>
+								Agregar
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="container-contact100-form-btn">
+                                <div class="wrap-contact100-form-btn">
+                                    <div class="contact100-form-bgbtn"></div>
+                                    <button class="contact100-form-btn" type="submit">
+							<span>
+								<a class="input100" th:href="@{/tipos}">Ver Tipos Disponibles</a>
+								<i class="fa fa-eye m-l-7" aria-hidden="true"></i>
+							</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="dropDownSelect1"></div>
 
 
 
@@ -184,21 +209,14 @@
                 </div>
             </div>
         </div>
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
 
-
-
-
+        <!-- ============================================================== -->
+        <!-- end footer -->
+        <!-- ============================================================== -->
     </div>
-</div>
-</div>
-<!-- ============================================================== -->
-<!-- footer -->
-<!-- ============================================================== -->
-
-<!-- ============================================================== -->
-<!-- end footer -->
-<!-- ============================================================== -->
-</div>
 </div>
 <!-- ============================================================== -->
 <!-- end main wrapper -->

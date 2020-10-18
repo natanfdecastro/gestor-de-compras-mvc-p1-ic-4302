@@ -4,7 +4,7 @@
 font-family: 'Circular Std Black';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Black'), url('CircularStd-Black.woff') format('woff');
+src: local('Circular Std Black'), url('circular-std/CircularStd-Black.woff') format('woff');
 }
 
 

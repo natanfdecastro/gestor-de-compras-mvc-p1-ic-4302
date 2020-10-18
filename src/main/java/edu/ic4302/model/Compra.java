@@ -3,13 +3,13 @@ import java.util.Date;
 public class Compra {
 
     private long id;
-    Date fecha;
+    String fecha;
     private long id_proveedor;
 
     public Compra() {
     }
 
-    public Compra(Date fecha, long id_proveedor) {
+    public Compra(String fecha, long id_proveedor) {
         this.fecha = fecha;
         this.id_proveedor = id_proveedor;
     }
@@ -22,11 +22,11 @@ public class Compra {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

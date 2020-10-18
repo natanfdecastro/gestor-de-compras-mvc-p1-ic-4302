@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Manejar Tipo</title>
+    <title>Manejar Productos</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" th:href="@{/css/libs/style.css}">
     <link rel="stylesheet" th:href="@{/css/vendor/bootstrap/bootstrap.min.css}">
@@ -97,7 +97,7 @@
                                         <a class="nav-link" th:href="@{/productos/new}">Agregar Producto</a>
                                     </li>
                                     <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/compraProductos/new}">Agregar Compra Producto</a>
+                                        <a class="nav-link" th:href="@{/compraProductos/new}">Agregar Compra Producto</a>
                                     </li>
                                 </ul>
                             </div>
@@ -151,36 +151,40 @@
         <div class="container-fluid dashboard-content">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h5>Panel Principal > Manejar Tablas > Tipos</h5>
+                    <h5>Panel Principal > Manejar Tablas > Productos</h5>
                     <!-- ============================================================== -->
                     <!-- content -->
                     <!-- ============================================================== -->
                     <br><br>
 
-                    <table class="container">
-                        <thead>
-                        <tr>
-                            <th><h1>ID</h1></th>
-                            <th><h1>Nombre</h1>
-                            <th><h1>Acción: Editar</h1></th>
-                            <th><h1>Acción: Eliminar</h1></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="tipo : ${listTipos}">
-                            <td th:text="${tipo.id}"></td>
-                            <td th:text="${tipo.nombre}"></td>
-                            <td><center><a th:href="@{'/tipo/edit/' + ${tipo.id}}" class="yellow">EDITAR</a></center></td>
-                            <td><center><a th:href="@{'/tipo/delete/' + ${tipo.id}}" class="red">ELIMINAR</a></center></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        <table class="container">
+                            <thead>
+                            <tr>
+                                <th><h1>ID</h1></th>
+                                <th><h1>Nombre</h1></th>
+                                <th><h1>Medida</h1></th>
+                                <th><h1>Id_tipo</h1></th>
+                                <th><h1>Acción: Editar</h1></th>
+                                <th><h1>Acción: Eliminar</h1></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="producto : ${listProductos}">
+                                    <td th:text="${producto.id}"></td>
+                                    <td th:text="${producto.nombre}"></td>
+                                    <td th:text="${producto.medida}"></td>
+                                    <td th:text="${producto.id_tipo}"></td>
+                                    <td><center><a th:href="@{'/productos/edit/' + ${producto.id}}" class="text-white">EDITAR</a></center></td>
+                                    <td><center><a th:href="@{'/productos/delete/' + ${producto.id}}" class="red">ELIMINAR</a></center></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
 
 
-                    <!-- ============================================================== -->
-                    <!-- end content -->
-                    <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end content -->
+                        <!-- ============================================================== -->
                 </div>
             </div>
         </div>
