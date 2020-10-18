@@ -9,7 +9,8 @@ public class Proveedor {
     private String direccion;
     private String telefono;
 
-    public Proveedor() {}
+    public Proveedor() {
+    }
 
     public Proveedor(String nombre, String direccion, String telefono) {
 

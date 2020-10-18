@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Side Navigation Menu</title>
+    <meta charset="utf-8">
+    <meta name="Author" content="http://pablogarciafernandez.com" />
+    <meta name="description" content="Table Responsive" />
+    <meta name="keywords" content="table, responsive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/proveedor.css}"  />
+
+</head>
+<body>
+
+<h1><span class="blue">&lt;</span>Administrador de Gastos:<span class="blue">&gt;</span> <span class="yellow">Tipos</pan></h1>
+<h2><a href="http://pablogarciafernandez.com" target="_blank"></a></h2>
+
+<table class="container">
+    <thead>
+    <tr>
+        <th><h1>ID</h1></th>
+        <th><h1>Nombre</h1>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tipo : ${listTipos}">
+        <td th:text="${tipo.id}"></td>
+        <td th:text="${tipo.nombre}"></td>
+        <td><center><a th:href="@{'/tipo/edit/' + ${tipo.id}}" class="yellow">EDITAR</a></center></td>
+        <td><center><a th:href="@{'/tipo/delete/' + ${tipo.id}}" class="red">ELIMINAR</a></center></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -19,7 +19,7 @@ public class ProveedorDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Proveedor> list() {
+    public List<Proveedor> listProveedores () {
 
         String sql = "SELECT * FROM PROVEEDOR";
 
@@ -28,7 +28,7 @@ public class ProveedorDAO {
         return listProveedor;
     }
 
-    public void save(Proveedor proveedor) {
+    public void saveProveedor(Proveedor proveedor) {
 
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("Proveedor").usingColumns("nombre", "direccion", "telefono");
@@ -36,7 +36,7 @@ public class ProveedorDAO {
         insertActor.execute(param);
     }
 
-    public Proveedor get(int id) {
+    public Proveedor getProveedor(int id) {
         String sql = "SELECT * FROM PROVEEDOR WHERE id = ?";
         Object[] args = {id};
         Proveedor proveedor = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Proveedor.class));
@@ -44,7 +44,7 @@ public class ProveedorDAO {
         return proveedor;
     }
 
-    public void update(Proveedor proveedor) {
+    public void updateProveedor(Proveedor proveedor) {
 
         String sql = "UPDATE PROVEEDOR SET nombre=:nombre, direccion=:direccion, telefono=:telefono WHERE id=:id";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(proveedor);
@@ -52,7 +52,7 @@ public class ProveedorDAO {
         template.update(sql, param);
     }
 
-    public void delete(int id) {
+    public void deleteProveedor(int id) {
         String sql = "DELETE FROM PROVEEDOR WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }

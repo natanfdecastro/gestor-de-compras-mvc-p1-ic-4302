@@ -21,53 +21,51 @@ public class ProveedorController {
     @Autowired
     private ProveedorDAO proveedorDAO;
 
-    @RequestMapping("/proveedores/")
+    @RequestMapping("/proveedores")
     public String viewProveedores(Model model) {
-        List<Proveedor> listProveedores = proveedorDAO.list();
+        List<Proveedor> listProveedores = proveedorDAO.listProveedores();
         model.addAttribute("listProveedores", listProveedores);
-        return "table-responsive";
+        return "/proveedor/view-proveedores";
     }
 
     @RequestMapping("/proveedores/new")
-    public String showNewForm(Model model) {
+    public String newProveedorForm(Model model) {
         Proveedor proveedor = new Proveedor();
         model.addAttribute("proveedor", proveedor);
 
-        return "new_form";
+        return "/proveedor/new-proveedor-form";
     }
 
     @RequestMapping(value = "/proveedores/save", method = RequestMethod.POST)
-    public String save (@ModelAttribute("proveedor") Proveedor proveedor) {
+    public String saveProveedor (@ModelAttribute("proveedor") Proveedor proveedor) {
 
-        proveedorDAO.save(proveedor);
+        proveedorDAO.saveProveedor(proveedor);
 
-        return "redirect:/proveedores/";
+        return "redirect:/proveedores";
     }
 
     @RequestMapping("/proveedores/edit/{id}")
-    public ModelAndView showEditForm(@PathVariable(name = "id") int id) {
+    public ModelAndView editProveedorForm(@PathVariable(name = "id") int id) {
 
-        ModelAndView mav = new ModelAndView("edit_form");
-        Proveedor proveedor = proveedorDAO.get(id);
-        mav.addObject("proveedor", proveedor);
+        ModelAndView modelAndView = new ModelAndView("/proveedor/edit-proveedor-form");
+        Proveedor proveedor = proveedorDAO.getProveedor(id);
+        modelAndView.addObject("proveedor", proveedor);
 
-        return mav;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/proveedores/update", method = RequestMethod.POST)
-    public String update(@ModelAttribute("proveedor") Proveedor proveedor) {
-        proveedorDAO.update(proveedor);
+    public String updateProveedor(@ModelAttribute("proveedor") Proveedor proveedor) {
+        proveedorDAO.updateProveedor(proveedor);
 
-        return "redirect:/proveedores/";
+        return "redirect:/proveedores";
     }
 
     @RequestMapping("/proveedores/delete/{id}")
-    public String delete(@PathVariable(name = "id") int id) {
+    public String deleteProveedor(@PathVariable(name = "id") int id) {
 
-        proveedorDAO.delete(id);
+        proveedorDAO.deleteProveedor(id);
 
-        return "redirect:/proveedores/";
+        return "redirect:/proveedores";
     }
-
-
 }
