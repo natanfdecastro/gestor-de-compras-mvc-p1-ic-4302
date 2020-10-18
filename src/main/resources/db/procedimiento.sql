@@ -1,5 +1,3 @@
-
-
 CREATE TABLE no_normalizada (
     proveedor VARCHAR (200),
     tipo VARCHAR (200),
@@ -57,9 +55,10 @@ CREATE OR REPLACE PROCEDURE importar_datos AS
                          datos_proveedor(indice) := trim(columna.dato);
                          indice := indice+1;
                     END LOOP;
+                    INSERT INTO proveedor(nombre,direccion,telefono)
+                    values(datos_proveedor(1),datos_proveedor(2),datos_proveedor(3));
                 END LOOP;
-                INSERT INTO proveedor(nombre,direccion,telefono)
-                values(datos_proveedor(1),datos_proveedor(2),datos_proveedor(3));
+                
 		    end if;
 		    -- normaliza el tipo
 		    if i.tipo is not NULL then 
@@ -87,9 +86,10 @@ CREATE OR REPLACE PROCEDURE importar_datos AS
                          datos_producto(indice) := trim(columna.dato);
                          indice := indice+1;
                     END LOOP;
+                    INSERT INTO producto(nombre,medida,id_tipo)
+					values(datos_producto(1),datos_producto(2),datos_producto(3));
                 END LOOP;
-                INSERT INTO producto(nombre,medida,id_tipo)
-                values(datos_producto(1),datos_producto(2),datos_producto(3));
+                
 		    end if;
 		    
 		    -- normaliza compra
@@ -107,9 +107,10 @@ CREATE OR REPLACE PROCEDURE importar_datos AS
                          datos_compra(indice) := trim(columna.dato);
                          indice := indice+1;
                     END LOOP;
+                    INSERT INTO compra(fecha,id_proveedor)
+					values(datos_compra(1),datos_compra(2));
                 END LOOP;
-                INSERT INTO compra(fecha,id_proveedor)
-                values(datos_compra(1),datos_compra(2));
+                
 		    end if;
 		    
 		    -- normaliza compra_producto
@@ -127,9 +128,10 @@ CREATE OR REPLACE PROCEDURE importar_datos AS
                          datos_compra_producto(indice) := trim(columna.dato);
                          indice := indice+1;
                     END LOOP;
+                    INSERT INTO compra_producto(id_compra,id_producto,cantidad,precio)
+					values(datos_compra_producto(1),datos_compra_producto(2),datos_compra_producto(3),datos_compra_producto(4));
                 END LOOP;
-                INSERT INTO compra_producto(id_compra,id_producto,cantidad,precio)
-                values(datos_compra_producto(1),datos_compra_producto(2),datos_compra_producto(3),datos_compra_producto(4));
+                
 		    end if;
 		    
 		end loop;
