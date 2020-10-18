@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin de Gastos</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/libs/style.css}">
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/vendor/fonts/circular-std/style.css}">
+    <link rel="stylesheet" th:href="@{/css/vendor/fonts/fontawesome/css/fontawesome-all.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/proveedor.css}"  />
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+         <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+         <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="/">ADMINISTRACIÓN DE CONTROL DE GASTOS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+      <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/}"  >Página Principal</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Acciones</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/compras/new}">Agregar Nueva Compra</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/proveedores/new}">Agregar Proveedor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/tipo/new}">Agregar Tipo</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/productos/new}">Agregar Producto</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Estadísticas</a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/productos/clasificar-productos}">Clasificar Productos (Asc)</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Manejar Tablas </a>
+                                <div id="submenu-5" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/compras}">Compra</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/productos}">Producto</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/proveedores}">Proveedor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/tipos}">Tipo</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h1 class="text-center">Panel Principal</h1>
+                        <!-- ============================================================== -->
+                        <!-- content -->
+                        <!-- ============================================================== -->
+
+
+
+
+                        <!-- ============================================================== -->
+                        <!-- end content -->
+                        <!-- ============================================================== -->
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script th:src="@{/js/vendor/jquery/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/vendor/bootstrap/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/js/vendor/slimscroll/jquery.slimscroll.js}"></script>
+    <script th;src="@{/js/libs/js/main-js.js}"></script>
+
+</body>
+ 
+</html>
